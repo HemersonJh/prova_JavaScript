@@ -10,13 +10,13 @@
     <h1>Cadastro de pessoas</h1>
 <form class="form js-form">
     <label for="name">
-        Nome
-        <input class="form-field js-field" id="name" maxlength="120" name="name" required type="text">
+        Nome <br>
+        <input class="form" id="name" maxlength="120" name="name" required type="text" pattern="[a-zA-Z ]+" title="Somente letras"><br>
     </label>
     <label for="birth-date">
-        Data de Nascimento
+        Data de Nascimento <br>
         <input class="form-field js-field" id="birth-date" name="birth-date" required type="date">
-    </label>
+    </label> <br>
     <button type="submit" id="save">Salvar</button>
     
 </form>
