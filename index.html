@@ -3,11 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        .form {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input {
+            width: 100%;
+            padding: 5px;
+            margin-bottom: 10px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table, th, td {
+            border: 1px solid #333;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        td:last-child {
+            text-align: center;
+        }
+
+        button {
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+
+        button.edit {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+        }
+
+        button.delete {
+            background-color: #f44336;
+            color: white;
+            border: none;
+        }
+    </style>
     <script src="js/index.js"></script>
     <title>CRUD - JAVASCRIPT</title>
 </head>
 <body>
-    <h1>Cadastro de pessoas</h1>
+    <h1>Agenda de Aniversários</h1>
 <form class="form js-form">
     <label for="name">
         Nome <br>
@@ -15,10 +76,17 @@
     </label>
     <label for="birth-date">
         Data de Nascimento <br>
-        <input class="form-field js-field" id="dataDeNascimento" name="birth-date" required type="date">
+        <input class="form-field js-field" id="date" name="birth-date" required type="date">
     </label> <br>
-    <button type="submit" id="save">Salvar</button>
-    
+    <button type="submit" id="save">Salvar</button>    
 </form>
+<br>
+<table border="1" id="table">
+    <tr>
+    <td>Nome</td>
+    <td>Data de Nascimento</td>
+    <td>Ações</td>
+    </tr>
+</table>
 </body>
 </html>
