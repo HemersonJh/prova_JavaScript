@@ -60,7 +60,10 @@ function exibirDadosNaTabela(dados) {
         var celulaAcoes = linha.insertCell(2);
 
         celulaNome.innerHTML = registro.nome;
-        celulaData.innerHTML = registro.dataNascimento;
+
+    
+        var dataFormatada = new Date(registro.dataNascimento).toLocaleDateString('pt-BR');
+        celulaData.innerHTML = dataFormatada;
 
         var botaoEditar = document.createElement('button');
         botaoEditar.innerText = 'Editar';
@@ -80,22 +83,6 @@ function exibirDadosNaTabela(dados) {
 }
 
 
-function excluirRegistro(index) {
-    var dadosExistenteString = localStorage.getItem('pessoas');
-    if (dadosExistenteString) {
-        var dadosExistente = JSON.parse(dadosExistenteString);
-
-        // Remove o registro pelo índice
-        dadosExistente.splice(index, 1);
-
-        // Atualiza o localStorage
-        localStorage.setItem('pessoas', JSON.stringify(dadosExistente));
-
-        // Exibe os dados atualizados na tabela
-        exibirDadosNaTabela(dadosExistente);
-    }
-}
-
 function editarRegistro(index, registro) {
     // Preenche os campos de entrada com os dados do registro selecionado
     document.getElementById('name').value = registro.nome;
@@ -109,6 +96,17 @@ function editarRegistro(index, registro) {
         localStorage.setItem('pessoas', JSON.stringify(dadosExistente));
     }
 
-    // Agora, exibe os dados atualizados na tabela
+    
     loadData();
+}
+function excluirRegistro(index) {
+    var dadosExistenteString = localStorage.getItem('pessoas');
+    if (dadosExistenteString) {
+        var dadosExistente = JSON.parse(dadosExistenteString);
+        dadosExistente.splice(index, 1);
+
+        localStorage.setItem('pessoas', JSON.stringify(dadosExistente));
+
+        exibirDadosNaTabela(dadosExistente);
+    }
 }
