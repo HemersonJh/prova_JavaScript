@@ -95,3 +95,20 @@ function excluirRegistro(index) {
         exibirDadosNaTabela(dadosExistente);
     }
 }
+
+function editarRegistro(index, registro) {
+    // Preenche os campos de entrada com os dados do registro selecionado
+    document.getElementById('name').value = registro.nome;
+    document.getElementById('date').value = registro.dataNascimento;
+
+    // Remove o registro atual da lista sem atualizar a tabela ainda
+    var dadosExistenteString = localStorage.getItem('pessoas');
+    if (dadosExistenteString) {
+        var dadosExistente = JSON.parse(dadosExistenteString);
+        dadosExistente.splice(index, 1);
+        localStorage.setItem('pessoas', JSON.stringify(dadosExistente));
+    }
+
+    // Agora, exibe os dados atualizados na tabela
+    loadData();
+}
